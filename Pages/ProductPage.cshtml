@@ -1,0 +1,110 @@
+﻿@page
+@model ProductPageModel
+@{
+    ViewData["Title"] = "Товар";
+}
+<div class="page-product-container">
+    <div class="page-product-top-container">
+        <div class="product-image" style="background-image: url(@Model.product.PictureUrl)"></div>
+        <div class="page-product-right-container">
+            <div class="page-product-cost-container">
+                <div class="cost">@Model.product.Cost ₽</div>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    if (Model.InBasket(Model.product.Id) == false)
+                    {
+                        <div class="buy" id="product-@Model.product.Id-cost-container-buy"><a asp-route-desc=@Model._desc asp-route-id=@Model.product.Id asp-page-handler="AddBasket" style="color: white"><div class="product-basket-icon" style="background-image: url(/img/basket.png)"></div></a></div>
+                    }
+                    else
+                    {
+                        <div class="buy" id="product-@Model.product.Id-cost-container-buy"><a asp-route-desc=@Model._desc asp-route-id=@Model.product.Id asp-page-handler="DelBasket" style="color: white"><div class="product-basket-icon" style="background-image: url(/img/delete.png)"></div></a></div>
+                    }
+                }
+            </div>
+            <div class="small-button"><a href="/PurchasePage?id=@Model.product.Id" style="color: white">Купить</a></div>
+            <div class="tags">
+                <p>
+                    Платформа: Windows <br>
+                    Жанр: @Model.genre.Remove(Model.genre.Length - 2, 2) <br>
+                    Разработчик: @Model.developer <br>
+                    Издатель: @Model.publisher <br>
+                    Язык: Русский <br>
+                    Наличие: @Model.quantity <br>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="page-product-bottom-container">
+        <div class="menu">
+            <div class="small-button"><a href="/ProductPage?id=@Model.product.Id&desc=0" style="color: white">Описание</a></div>
+            <div class="big-button"><a href="/ProductPage?id=@Model.product.Id&desc=1" style="color: white">Системные требования</a></div>
+            <div class="small-button"><a href="/ProductPage?id=@Model.product.Id&desc=2" style="color: white">Активация</a></div>
+            <div class="small-button"><a href="/ProductPage?id=@Model.product.Id&desc=3" style="color: white">Отзывы</a></div>
+        </div>
+        <div class="description">
+            @if (Model._desc == 0)
+            {
+                @foreach (var e in Model.product.Description.Split(new char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    <p> @e</p>
+                }
+                <p> &emsp; </p>
+            }
+            else if (Model._desc == 1)
+            {
+                @foreach (var e in Model.product.SystemRequirements.Split(new char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    <p> @e</p>
+                }
+                <p> &emsp; </p>
+            }
+            else if (Model._desc == 2)
+            {
+                <p>Активируйте ключ</p>
+            }
+            else
+            {
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div class="comment-block">
+                        <div class="comment-container ">
+                            <form method="POST" class="create-comment">
+                                <textarea name="comment" class="comment-text" rows="5" style="max-width: 1180px; min-width: 1180px; min-height: 100px" placeholder="Напишите ваш отзыв..."></textarea>
+                                <br>
+                                <button class="middle-button" style="height: 60px; width: 220px;" type="submit" asp-route-id=@Model.product.Id asp-page-handler="Comment">Отправить</button>
+                            </form>
+                        </div>
+                    </div>
+                }
+                @foreach (var e in Model.Comments)
+                {
+                    <div class="comment-block ">
+                        <div class="comment-container ">
+                            <div class="comment-header">
+                                <div class="comment-title">Автор: @Model.Users[@e.Key]</div>
+                                <div class="comment-date">Дата: @Model.Dates[e.Key]</div>
+                            </div>
+                            <div class="comment-text">@e.Value</div>
+                        </div>
+                    </div>
+                }
+            }
+            </div>
+    </div>
+</div>
+
+@section Imports
+{
+    <link rel="stylesheet" href="~/css/product.css">
+    <link rel="stylesheet" href="~/css/dropdown.css">
+}
+
+@section Page
+{
+    @Model.product.Name
+}
+
+@section MyName
+{
+    @Model.GetUserName()
+}

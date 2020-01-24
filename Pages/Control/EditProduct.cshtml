@@ -1,0 +1,62 @@
+﻿@page
+@model WebShop.EditProductModel
+@{
+    ViewData["Title"] = "Редактирование продукта";
+}
+
+
+<div class="admin-container">
+    <div class="admin-menu-container">
+        <div class="middle-button"><a asp-page="/Admin" asp-route-desc="users" style="color: white;">Пользователи</a></div>
+        <div class="middle-button"><a asp-page="/Admin" asp-route-desc="products" style="color: white;">Товары</a></div>
+        <div class="middle-button"><a asp-page="/Login" style="color: white;" asp-page-handler="Logout">Выход</a></div>
+    </div>
+    <div class="admin-panel" id="admin-panel">
+        <form method="POST" style="display: flex; flex-direction:column; justify-content:space-between; height: 1480px; width: 600px">
+            <h1>Редактирование Товара</h1>
+            <br>
+            <h2>Название</h2>
+            <input style="width:600px; height: 60px; margin: 0 auto;" type="text" name="name" value="@Model.product.Name" />
+            <br>
+            <h2>Стоимость</h2>
+            <input style="width:600px; height: 60px; margin: 0 auto;" type="text" name="cost" value="@Model.product.Cost" />
+            <br>
+            <h2>Жанры</h2>
+            <textarea name="genres" rows="5" style="max-width: 600px; min-width: 600px; min-height: 100px">@Model.genres</textarea>
+            <br>
+            <h2>Описание</h2>
+            <textarea name="description" rows="5" style="max-width: 600px; min-width: 600px; min-height: 100px">@Model.product.Description</textarea>
+            <br>
+            <h2>Ссылка для изображения товара в меню</h2>
+            <input style="width:600px; height: 60px; margin: 0 auto;" type="text" name="iconUrl" value="@Model.product.IconUrl" />
+            <br>
+            <h2>Ссылка для изображения товара на страние</h2>
+            <input style="width:600px; height: 60px; margin: 0 auto;" type="text" name="pictureUrl" value="@Model.product.PictureUrl" />
+            <br>
+            <h2>Системные требования</h2>
+            <textarea name="systemRequirements" rows="5" style="max-width: 600px; min-width: 600px; min-height: 100px">@Model.product.SystemRequirements</textarea>
+            <br>
+            <h2>Список ключей</h2>
+            <textarea name="codes" rows="5" style="max-width: 600px; min-width: 600px; min-height: 100px">@Model.codes</textarea>
+            <br>
+            <button class="middle-button" style="height: 60px; width: 220px;" type="submit" asp-route-id="@Model.product.Id" asp-page-handler="Save">Сохранить</button>
+        </form>
+    </div>
+</div>
+
+@section Imports
+{
+    <link rel="stylesheet" href="~/css/admin.css">
+    <link rel="stylesheet" href="~/css/dropdown.css">
+}
+
+@section Page
+{
+    Редактирование продукта
+}
+
+@section MyName
+{
+    Admin
+}
+

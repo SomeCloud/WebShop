@@ -1,0 +1,48 @@
+﻿@page
+@model WebShop.LoginModel
+@{
+    ViewData["Title"] = "Вход в личный кабинет";
+}
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="container" id="notif">
+        <div class="notif-text" asp-validation-summary="All"></div>
+        <span class="notif-close" onclick="this.parentElement.style.display='none';">&times;</span>
+    </div>
+}
+
+<div class="auth-container">
+    <div class="auth-logo"><a asp-page="/Index">Game Shop</a></div>
+    <div class="auth-title">Вход</div>
+    <form method="POST" style="flex-direction:column; justify-content:space-between; height: 240px; width: 550px" asp-page-handler="Login" asp-antiforgery="true">
+        <div class="txt-input">
+            <input style="width:540px; height: 55px;" asp-for="EMail" placeholder="Почта" required>
+        </div>
+        <div class="txt-input">
+            <input style="width:540px; height: 55px;" asp-for="Password" placeholder="Пароль" required>
+        </div>
+        <div class="auth-btns-container">
+            <div class="small-button"><a asp-page="/Registration">Регистрация</a></div>
+            <div class="small-button-untext"><button style="height: inherit; width: inherit; border-radius:inherit; color:inherit; font-size:inherit; background-color: var(--button-blue);" type="submit">Вход</button></div>
+        </div>
+    </form>
+</div>
+
+
+@section Imports
+{
+    <link rel="stylesheet" href="~/css/dropdown.css">
+    <link rel="stylesheet" href="~/css/auth.css">
+    <link rel="stylesheet" href="~/css/style.css">
+}
+
+@section Page
+{
+    Вход в личный кабинет
+}
+
+@section MyName
+{
+    none
+}

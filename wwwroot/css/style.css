@@ -1,0 +1,156 @@
+:root{
+    --white-bg: #ffffff;
+    --gray-bg: #dddddd;
+
+    --light-green: #36D792;
+    --dark-green: #218359;
+
+    --input-blue: #66A3D2;
+    --drop-blue: #3F92D2;
+    --logo-blue: #25567B;
+    --button-blue: #0B61A4;
+    --select-blue: #033E6B;
+}
+
+body{
+    margin: 0px 0px 10px;
+}
+
+.all{
+    min-height: 800px;
+    width: 100%;
+    padding-bottom: 10px;
+    margin: 0 auto;
+    background: var(--white-bg);
+}
+
+.top{
+    height: 170px;
+    width: 100%;
+    margin: 0px auto;
+    background: var(--white-bg);
+    display: block;
+    position: fixed;
+    z-index: 2;
+    box-shadow: 0 1px 10px black;
+}
+
+.main {
+    min-height: 710px;
+    width: 1280px;
+    margin: 0 auto;
+    padding-top: 180px;
+    background: var(--white-bg);
+    justify-content: space-between;
+    flex-direction: column;
+    display: block;
+    z-index: 1;
+}
+
+.small-button{
+    height: 30px;
+    width: 210px;
+    margin: 0px 0px;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 32px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--button-blue);
+    color: white;
+    display: block;
+    cursor: pointer;
+}
+
+.small-button-untext {
+    height: 60px;
+    width: 240px;
+    margin: 0px 0px;
+    border-radius: 5px;
+    font-size: 32px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--button-blue);
+    color: white;
+    display: block;
+    cursor: pointer;
+}
+
+.small-button-untext>a {
+    text-decoration: none;
+    color: var(--logo-blue); /* ÷вет посещенных ссылок */
+}
+
+.small-button-untext>a:visited {
+    color: white; /* ÷вет посещенных ссылок */
+}
+
+.middle-button {
+    height: 30px;
+    width: 320px;
+    margin: 0px 0px;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 32px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--button-blue);
+    color: white;
+    display: block;
+    cursor: pointer;
+}
+
+.btn-title{
+    height: 30px;
+    width: 210px;
+    margin: 0px 0px;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 32px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--logo-blue);
+    color: white;
+    display: block;
+}
+
+.big-button{
+    height: 30px;
+    width: 480px;
+    margin: 0px 0px;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 32px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--button-blue);
+    color: white;
+    display: block;
+    cursor: pointer;
+}
+
+.middle-button:hover, .big-button:hover{
+    background: var(--select-blue);
+}
+
+.txt-input{
+    height: 60px;
+    width: 550px;
+    margin: 0px auto;
+    border-radius: 5px;
+    font-size: 32px;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--input-blue);
+    color: white;
+    display: block;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: var(--logo-blue); /* ÷вет посещенных ссылок */
+}
+
+    a:visited {
+        color: white; /* ÷вет посещенных ссылок */
+    }

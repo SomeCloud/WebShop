@@ -1,0 +1,64 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Главная";
+}
+
+<div class="menu">
+    <div class="dropdown">
+        <button class="menu-dropbtn">&equiv; Каталог</button>
+        <div class="dropdown-content">
+            <a href="/Index">Все игры</a>
+            <a href="/Index?genreId=1">Гонки</a>
+            <a href="/Index?genreId=2">Приключения</a>
+            <a href="/Index?genreId=3">Ролевые</a>
+            <a href="/Index?genreId=4">Стратегии</a>
+            <a href="/Index?genreId=5">Симуляторы</a>
+            <a href="/Index?genreId=6">Экшен</a>
+            <a href="/Index?genreId=7">Инди</a>
+        </div>
+    </div>
+    <div class="small-button"><a style="color: white;" asp-page-handler="Rand">Популярное</a></div>
+    <div class="small-button"><a style="color: white;" asp-page-handler="Rand">Рекомендуем</a></div>
+    <div class="small-button"><a style="color: white;" asp-page-handler="Rand">Новое</a></div>
+    <div class="small-button"><a style="color: white;" asp-page-handler="Rand">Скидки</a></div>
+</div>
+<div class="products" id="products">
+    @foreach (var e in Model.mas)
+    {
+        <div class="product-container" id="product-@e.Id">
+            <div class="title" id="product-@e.Id-title">@e.Name</div>
+            <div class="icon" id="product-@e.Id-icon" style="background-image: url(@e.IconUrl)"></div>
+            <div class="cost-container" id="product-@e.Id-cost-container">
+                <div class="cost" id="product-@e.Id-cost-container-cost"><a href="/ProductPage?id=@e.Id&desc=0" style="color: white">@e.Cost ₽</a></div>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    if (Model.InBasket(e.Id) == false)
+                    {
+                        <div class="buy" id="product-@e.Id-cost-container-buy"><a asp-route-id=@e.Id asp-page-handler="AddBasket" style="color: white"><div class="product-basket-icon" style="background-image: url(/img/basket.png)"></div></a></div>
+                    }
+                    else
+                    {
+                        <div class="buy" id="product-@e.Id-cost-container-buy"><a asp-route-id=@e.Id asp-page-handler="DelBasket" style="color: white"><div class="product-basket-icon" style="background-image: url(/img/delete.png)"></div></a></div>
+                    }
+                }
+            </div>
+        </div>
+    }
+</div>
+
+@section Imports
+{
+    <link rel="stylesheet" href="~/css/product.css">
+    <link rel="stylesheet" href="~/css/dropdown.css">
+}
+
+@section Page
+{
+    Главная
+}
+
+@section MyName
+{
+    @Model.GetUserName()
+}

@@ -1,0 +1,56 @@
+.admin-container {
+    min-height: 720px;
+    width: 1260px;
+    margin: 0px auto;
+    background: var(--white-bg);
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-menu-container {
+    height: 80px;
+    width: 1260px;
+    margin: 0px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.admin-panel {
+    min-height: 100px;
+    width: 1260px;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#admin-panel thead tr {
+    cursor: pointer;
+}
+
+#admin-panel td, #browser th {
+    border-bottom: 1px solid #aaa;
+    padding: 8px 12px;
+    white-space: nowrap;
+    width: auto;
+    height: 24px;
+    text-align: left;
+}
+
+#admin-panel tr:hover {
+    background-color: #eee;
+}
+
+#admin-panel thead {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-weight: 500;
+}
+
+#admin-panel td:first-child {
+    width: 24px;
+}
+
+#admin-panel td:nth-child(4) {
+    width: 128px;
+}

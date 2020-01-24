@@ -1,0 +1,53 @@
+﻿@page
+@model WebShop.ProfileModel
+@{
+
+}
+
+<div class="profile-container">
+    <div class="profile-menu-container">
+        <div class="middle-button"><a asp-page="/Profile" style="color: white;">Профиль</a></div>
+        <div class="middle-button"><a asp-page="/Basket" style="color: white;">Корзина</a></div>
+        <div class="middle-button"><a asp-page="/Login" style="color: white;" asp-page-handler="Logout">Выход</a></div>
+        <div class="middle-button">Удалить аккаунт</div>
+    </div>
+    <div class="profile-settings">
+
+        <form method="POST" style="justify-content:space-between; height: 200px; width: 730px">
+            <input style="width:485px; height: 55px;" type="text" name="name" placeholder="Имя: @ViewData["Title"]" />
+            <br>
+            <button class="middle-button" style="height: 60px; width: 220px;" type="submit" asp-page-handler="ChangName">Изменить</button>
+        </form>
+        <form method="POST" style="justify-content:space-between; height: 200px; width: 730px">
+            <input style="width:485px; height: 55px;" type="text" name="email" placeholder="Почта: @User.Identity.Name" />
+            <br>
+            <button class="middle-button" style="height: 60px; width: 220px;" type="submit" asp-page-handler="ChangEMail">Изменить</button>
+        </form>
+        <form method="POST" style="justify-content:space-between; height: 310px; width: 730px">
+            <div style="display: flex; flex-direction: column; justify-content: space-between; height: 135px; width: 500px">
+                <input style="width: 485px; height: 55px;" type="text" name="password" placeholder="Пароль" />
+                <br>
+                <input style="width: 485px; height: 55px;" type="text" name="confirmPassword" placeholder="Повторите Пароль" />
+            </div>
+            <br>
+            <button class="middle-button" style="height: 60px; width: 220px;" type="submit" asp-page-handler="ChangPassword">Изменить</button>
+        </form>
+    </div>
+</div>
+
+@section Imports
+{
+    <link rel="stylesheet" href="~/css/product.css">
+    <link rel="stylesheet" href="~/css/dropdown.css">
+    <link rel="stylesheet" href="~/css/profile.css">
+}
+
+@section Page
+{
+    Личный кабинет
+}
+
+@section MyName
+{
+    @ViewData["Title"]
+}

@@ -1,0 +1,119 @@
+﻿@page
+@model WebShop.AdminModel
+@{
+    ViewData["Title"] = "Admin";
+}
+
+<div class="admin-container">
+    <div class="admin-menu-container">
+        <a asp-page="/Admin" asp-route-desc="users" style="color: white;"><div class="middle-button">Пользователи</div></a>
+        <a asp-page="/Admin" asp-route-desc="products" style="color: white;"><div class="middle-button">Товары</div></a>
+        <a asp-page="/Index" style="color: white;" asp-page-handler="Logout"><div class="middle-button">Вернуться на сайт</div></a>
+    </div>
+    <div class="admin-panel" id="admin-panel">
+        <table>
+            <thead>
+                <tr>
+                    @if (Model._desc == "users")
+                    {
+                        <th>Имя</th>
+                        <th>Почта</th>
+                        <th>Пароль</th>
+                    }
+                    else
+                    {
+                        <th></th>
+                        <th>Название</th>
+                        <th>Стоимость</th>
+                        <th>Количество</th>
+                        <th>Разработчик</th>
+                        <th>Издатель</th>
+                        <th></th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model._desc == "users")
+                {
+                    foreach (var user in Model.Users)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => user.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => user.EMail)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => user.Password)
+                            </td>
+                            <td>
+                                <a asp-page="/Control/EditUser" asp-route-id="@user.Id">Изменить</a> |
+                                <a asp-page-handler="DeleteUser" asp-route-id="@user.Id">Удалить</a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <a asp-route-id="0" asp-page="/Control/EditProduct">Добавить</a>
+                        </td>
+                    </tr>
+                    foreach (var product in Model.Products)
+                    {
+                        <tr>
+                            <td>
+                                <img src="@product.IconUrl" style="width: 128px; height: 128px;" />
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => product.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => product.Cost)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => product.Quantity)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => Model.Developers[(int)product.IdDeveloper])
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => Model.Publishers[(int)product.IdPublisher])
+                            </td>
+                            <td>                              
+                                <a asp-page="/Control/EditProduct" asp-route-id="@product.Id">Изменить</a> |
+                                <a asp-page-handler="DeleteProduct" asp-route-id="@product.Id">Удалить</a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+        <br>
+    </div>
+</div>
+
+@section Imports
+{
+    <link rel="stylesheet" href="~/css/admin.css">
+    <link rel="stylesheet" href="~/css/dropdown.css">
+}
+
+@section Page
+{
+    Админ-панель
+}
+
+@section MyName
+{
+    Admin
+}
+

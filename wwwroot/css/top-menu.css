@@ -1,0 +1,94 @@
+.top-container{
+    height: 80px;
+    width: 1260px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottom-container{
+    height: 60px;
+    width: 1260px;
+    margin: 10px auto;
+    display: block;
+}
+
+.logo{
+    height: 30px;
+    width: 300px;
+    margin: 0px 0px;
+    padding: 25px;
+    border-radius: 5px;
+    font-size: 32px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--logo-blue);
+    color: white;
+    display: block;
+    cursor: pointer;
+}
+
+.page-name{
+    height: 30px;
+    width: 680px;
+    margin: 0px 0px;
+    padding: 25px;
+    border-radius: 5px;
+    font-size: 32px;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--logo-blue);
+    color: white;
+    display: block;
+}
+
+.basket-button{
+    height: 60px;
+    width: 60px;
+    margin: 0px 0px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 32px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--logo-blue);
+    color: white;
+    display: block;
+    cursor: pointer;
+}
+
+.profile-button{
+    height: 60px;
+    width: 60px;
+    margin: 0px 0px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 32px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--logo-blue);
+    color: white;
+    display: block;
+    cursor: pointer;
+}
+
+
+.basket-icon {
+    height: 60px;
+    width: 60px;
+    margin: 0px 0px;
+    /* background: url(/img/basket.png) 10% 10% no-repeat; */
+    background-size: cover;
+    display: block;
+}
+
+
+.profile-icon {
+    height: 60px;
+    width: 60px;
+    margin: 0px 0px;
+    /* background: url(~/css/profile.png) 10% 10% no-repeat; */
+    background-size: cover; /* Масштабируем фон */
+    display: block;
+}
+

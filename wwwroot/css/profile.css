@@ -1,0 +1,28 @@
+.profile-container {
+    height: 720px;
+    width: 1260px;
+    margin: 0px auto;
+    background: var(--white-bg);
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-menu-container {
+    height: 260px;
+    width: 320px;
+    padding-right: 35px;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.profile-settings {
+    height: 260px;
+    width: 1260px;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+

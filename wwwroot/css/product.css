@@ -1,0 +1,273 @@
+.product-container {
+    height: 380px;
+    width: 240px;
+    margin: 0px 0px;
+    padding: 0px 7.5px 10px 7.5px;
+    background: var(--white-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.profile-products {
+    min-height: 400px;
+    width: 1260px;
+    padding: 0px 0px 0px 80px;
+    margin: 0px auto;
+    display: flex;
+    justify-content: stretch;
+    flex-wrap: wrap;
+}
+
+.page-product-container{
+    height: 720px;
+    width: 1260px;
+    margin: 0px auto;
+    background: var(--white-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.page-product-top-container{
+    height: 480px;
+    width: 1260px;
+    margin: 0px auto;
+    background: var(--white-bg);
+    display: flex;
+    justify-content: space-between;
+}
+
+.page-product-right-container{
+    height: 440px;
+    width: 220px;
+    margin: 0px auto;
+    background: var(--white-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.page-product-bottom-container{
+    min-height: 200px;
+    width: 1260px;
+    margin: 0px auto;
+    padding: 10px 0px;
+    background: var(--white-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.page-product-cost-container{
+    height: 60px;
+    width: 240px;
+    margin: 0px auto;
+    background: var(--white-bg);
+    display: flex;
+    justify-content: space-between;
+}
+
+.pr-title {
+    height: 50px;
+    width: 1260px;
+    margin: 0px 0px;
+    padding: 10px 5px 10px;
+    border-radius: 5px;
+    font-size: 28px;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--logo-blue);
+    display: block;
+}
+
+.title{
+    height: 50px;
+    width: 230px;
+    margin: 0px 0px;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 24px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--logo-blue);
+    display: block;
+}
+
+.icon{
+    height: 240px;
+    width: 240px;
+    margin: 0px 0px;
+    border-radius: 5px;
+    /*background: var(--logo-blue);*/
+    background: url(https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1389536/Enter_the_Gungeon_prdvde.png) 1% 1% no-repeat;
+    background-size: cover; /* Масштабируем фон */
+    display: block;
+}
+
+.cost {
+    height: 30px;
+    width: 140px;
+    margin: 0px auto;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 32px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--white-bg);
+    background: var(--light-green);
+    display: block;
+}
+
+.cost:hover, .buy:hover{
+    background: var(--dark-green);
+}
+
+.buy {
+    height: 40px;
+    width: 40px;
+    margin: 0px auto;
+    padding: 10px;
+    border-radius: 5px;
+    background: var(--light-green);
+    display: block;
+    cursor: pointer;
+}
+
+.cost-container{
+    height: 60px;
+    width: 240px;
+    margin: 0px auto;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:visited {
+    color: white; /* Цвет посещенных ссылок */
+}
+
+.product-basket-icon{
+    height: 40px;
+    width: 40px;
+    margin: 0px 0px;
+    background: url(img/basket.png) 10% 10% no-repeat;
+    background-size: cover; /* Масштабируем фон */
+    display: block;
+}
+
+
+.product-image{
+    height: 480px;
+    width: 1010px;
+    margin: 0px 0px;
+    border-radius: 5px;
+    background: url(https://steamcdn-a.akamaihd.net/steam/apps/311690/header.jpg?t=1575923806) 50% 0% no-repeat;
+    background-size: cover; /* Масштабируем фон */
+    display: block;
+}
+
+.tags{
+    min-height: 300px;
+    width: 240px;
+    margin: 0px 0px;
+    border-radius: 5px;
+    font-size: 20px;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--logo-blue);
+    display: block;
+}
+
+.description{
+    min-height: 100px;
+    width: 1260px;
+    margin: 0px auto;
+    padding: 15px 0px 25px;
+    font-size: 20px;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--logo-blue);
+    display: block;
+}
+
+.comment-block {
+    min-height: 50px;
+    width: 1260px;
+    margin: 0px auto;
+    padding: 0px 0px 10px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.comment-container {
+    min-height: 50px;
+    width: 1260px;
+    margin: 0px auto;
+    padding: 10px 0px;
+    border: 2px solid var(--logo-blue);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.comment-header {
+    min-height: 30px;
+    width: 1260px;
+    margin: 0px auto;
+    padding: 0px 0px;
+    color: var(--logo-blue);
+    display: flex;
+}
+
+.comment-title {
+    min-height: 30px;
+    width: 1260px;
+    margin: 0px auto;
+    padding: 15px 10px;
+    font-size: 24px;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--logo-blue);
+    display: block;
+}
+
+.comment-date {
+    min-height: 30px;
+    width: 1260px;
+    margin: 0px auto;
+    padding: 15px 10px;
+    font-size: 24px;
+    text-align: right;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--logo-blue);
+    display: block;
+}
+
+.comment-text {
+    min-height: 20px;
+    width: 1180px;
+    margin: 0px auto;
+    padding: 10px 10px 10px;
+    font-size: 20px;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--logo-blue);
+    display: block;
+}
+
+.create-comment {
+    min-height: 20px;
+    width: 1200px;
+    margin: 0px auto;
+    padding: 0px 0px;
+    display: flex;
+    flex-direction: column;
+}
+

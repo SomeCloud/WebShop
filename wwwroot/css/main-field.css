@@ -1,0 +1,18 @@
+.menu{
+    height: 60px;
+    width: 1260px;
+    margin: 0px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.products {
+    min-height: 400px;
+    width: 1275px;
+    padding-top: 10px;
+    margin: 0px auto;
+    display: flex;
+    background: var(--white-bg);
+    justify-content: stretch;
+    flex-wrap: wrap;
+}

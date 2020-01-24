@@ -1,0 +1,72 @@
+﻿@using Microsoft.AspNetCore.Http;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Game Shop</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/top-menu.css">
+    <link rel="stylesheet" href="~/css/search-field.css">
+    <link rel="stylesheet" href="~/css/main-field.css">
+    @RenderSection("Imports", false)
+</head>
+
+<body>
+    <div class="all">
+        <div class="top">
+            <div class="top-container">
+                <a asp-area="" asp-page="/Index" style="color: white"><div class="logo">Game Shop</div></a>
+                <div class="page-name">@RenderSection("Page", false)</div>
+                <div class="basket-button"><a href="/Basket"><div class="basket-icon" style="background-image: url(/img/basket.png)"></div></a></div>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div class="dropdown">
+                        <div class="profile-button"><a href="/Profile"><div class="profile-icon" style="background-image: url(/img/profile.png)"></div></a></div>
+
+                        <div class="dropdown-content">
+                            <a>@RenderSection("MyName", false)</a>
+                            <a asp-page="/Profile">Профиль</a>
+                            @if (Context.Session.GetString("IsRole") != null)
+                            {
+                                var isRole = Context.Session.GetString("IsRole");
+                                if (isRole == "Admin")
+                                {
+                                    <a asp-page="/Admin">Админ-панель</a>
+                                }
+                            }
+                            <a asp-page="/Login" asp-page-handler="Logout">Выход</a>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    IgnoreSection("MyName");
+                    <div class="profile-button"><a href="/Login"><div class="profile-icon" style="background-image: url(/img/profile.png)"></div></a></div>
+                }
+            </div>
+            <div class="bottom-container">
+                <div class="search">
+                    <form method="POST">
+                        <input type="text" name="search" placeholder="Искать здесь..." />
+                        <button type="submit" asp-page="/Index" asp-page-handler="Search"><div class="search-icon" style="background-image: url(/img/search.png)"></div></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            @RenderBody()
+        </div>
+    </div>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+

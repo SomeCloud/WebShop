@@ -1,0 +1,46 @@
+﻿@page
+@model WebShop.EditUserModel
+@{
+    ViewData["Title"] = "Редактирование пользователя";
+}
+
+<div class="admin-container">
+    <div class="admin-menu-container">
+        <div class="middle-button"><a asp-page="/Admin" asp-route-desc="users" style="color: white;">Пользователи</a></div>
+        <div class="middle-button"><a asp-page="/Admin" asp-route-desc="products" style="color: white;">Товары</a></div>
+        <div class="middle-button"><a asp-page="/Login" style="color: white;" asp-page-handler="Logout">Выход</a></div>
+    </div>
+    <div class="admin-panel" id="admin-panel">
+        <form method="POST" style="display: flex; flex-direction:column; justify-content:space-between; height: 580px; width: 600px">
+            <h1>Редактирование пользователя</h1>
+            <br>
+            <h2>Имя</h2>
+            <input style="width:600px; height: 60px; margin: 0 auto;" type="text" name="name" value="@Model.user.Name" placeholder="Имя" />
+            <br>
+            <h2>Почта</h2>
+            <input style="width:600px; height: 60px; margin: 0 auto;" type="text" name="email" value="@Model.user.EMail" placeholder="Почта" />
+            <br>
+            <h2>Пароль</h2>
+            <input style="width:600px; height: 60px; margin: 0 auto;" type="text" name="password" value="@Model.user.Password" placeholder="Пароль" />
+            <br>
+            <button class="middle-button" style="height: 60px; width: 220px;" type="submit" asp-route-id="@Model.user.Id" asp-page-handler="Save">Сохранить</button>
+        </form>
+    </div>
+</div>
+
+@section Imports
+{
+    <link rel="stylesheet" href="~/css/admin.css">
+    <link rel="stylesheet" href="~/css/dropdown.css">
+}
+
+@section Page
+{
+    Редактирование пользователя
+}
+
+@section MyName
+{
+    Admin
+}
+
